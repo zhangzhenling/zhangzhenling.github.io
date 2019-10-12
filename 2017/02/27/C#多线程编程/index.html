@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>抬头望天、放肆地微笑😊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文链接http://www.cnblogs.com/luxiaoxun/p/3280146.html一、使用线程的理由 1、可以使用线程将代码同其他代码隔离，提高应用程序的可靠性。 2、可以使用线程来简化编码。 3、可以使用线程来实现并发执行。 二、基本知识 1、进程与线程：进程作为操作系统执行程序的基本单位，拥有应用程序的资源，进程包含线程，进程的资源被线程共享，线程不拥有资源。 2、前台线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抬头望天、放肆地微笑😊">
+<meta property="og:url" content="https://zhangzhenling.github.io/2017/02/27/C#多线程编程/index.html">
+<meta property="og:site_name" content="抬头望天、放肆地微笑😊">
+<meta property="og:description" content="原文链接http://www.cnblogs.com/luxiaoxun/p/3280146.html一、使用线程的理由 1、可以使用线程将代码同其他代码隔离，提高应用程序的可靠性。 2、可以使用线程来简化编码。 3、可以使用线程来实现并发执行。 二、基本知识 1、进程与线程：进程作为操作系统执行程序的基本单位，拥有应用程序的资源，进程包含线程，进程的资源被线程共享，线程不拥有资源。 2、前台线程">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T07:20:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抬头望天、放肆地微笑😊">
+<meta name="twitter:description" content="原文链接http://www.cnblogs.com/luxiaoxun/p/3280146.html一、使用线程的理由 1、可以使用线程将代码同其他代码隔离，提高应用程序的可靠性。 2、可以使用线程来简化编码。 3、可以使用线程来实现并发执行。 二、基本知识 1、进程与线程：进程作为操作系统执行程序的基本单位，拥有应用程序的资源，进程包含线程，进程的资源被线程共享，线程不拥有资源。 2、前台线程">
+  
+    <link rel="alternate" href="/atom.xml" title="抬头望天、放肆地微笑😊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">抬头望天、放肆地微笑😊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zhangzhenling.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-C#多线程编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/27/C#多线程编程/" class="article-date">
+  <time datetime="2017-02-26T16:00:00.000Z" itemprop="datePublished">2017-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原文链接http-www-cnblogs-com-luxiaoxun-p-3280146-html"><a href="#原文链接http-www-cnblogs-com-luxiaoxun-p-3280146-html" class="headerlink" title="原文链接http://www.cnblogs.com/luxiaoxun/p/3280146.html"></a><a href="http://www.cnblogs.com/luxiaoxun/p/3280146.html" target="_blank" rel="noopener">原文链接</a><a href="http://www.cnblogs.com/luxiaoxun/p/3280146.html" target="_blank" rel="noopener">http://www.cnblogs.com/luxiaoxun/p/3280146.html</a></h2><p>一、使用线程的理由</p>
+<p>1、可以使用线程将代码同其他代码隔离，提高应用程序的可靠性。</p>
+<p>2、可以使用线程来简化编码。</p>
+<p>3、可以使用线程来实现并发执行。</p>
+<p>二、基本知识</p>
+<p>1、进程与线程：进程作为操作系统执行程序的基本单位，拥有应用程序的资源，进程包含线程，进程的资源被线程共享，线程不拥有资源。</p>
+<p>2、前台线程和后台线程：通过Thread类新建线程默认为前台线程。当所有前台线程关闭时，所有的后台线程也会被直接终止，不会抛出异常。</p>
+<p>3、挂起（Suspend）和唤醒（Resume）：由于线程的执行顺序和程序的执行情况不可预知，所以使用挂起和唤醒容易发生死锁的情况，在实际应用中应该尽量少用。</p>
+<p>4、阻塞线程：Join，阻塞调用线程，直到该线程终止。</p>
+<p>5、终止线程：Abort：抛出 ThreadAbortException 异常让线程终止，终止后的线程不可唤醒。Interrupt：抛出 ThreadInterruptException 异常让线程终止，通过捕获异常可以继续执行。</p>
+<p>6、线程优先级：AboveNormal BelowNormal Highest Lowest Normal，默认为Normal。</p>
+<p>三、线程的使用</p>
+<p>线程函数通过委托传递，可以不带参数，也可以带参数（只能有一个参数），可以用一个类或结构体封装参数。</p>
+<p>复制代码<br>namespace Test<br>{<br>    class Program<br>    {<br>        static void Main(string[] args)<br>        {<br>            Thread t1 = new Thread(new ThreadStart(TestMethod));<br>            Thread t2 = new Thread(new ParameterizedThreadStart(TestMethod));<br>            t1.IsBackground = true;<br>            t2.IsBackground = true;<br>            t1.Start();<br>            t2.Start(“hello”);<br>            Console.ReadKey();<br>        }</p>
+<pre><code>    public static void TestMethod()
+    {
+        Console.WriteLine(&quot;不带参数的线程函数&quot;);
+    }
+
+    public static void TestMethod(object data)
+    {
+        string datastr = data as string;
+        Console.WriteLine(&quot;带参数的线程函数，参数为：{0}&quot;, datastr);
+    }
+} </code></pre><p>}<br>复制代码<br>四、线程池</p>
+<p>由于线程的创建和销毁需要耗费一定的开销，过多的使用线程会造成内存资源的浪费，出于对性能的考虑，于是引入了线程池的概念。线程池维护一个请求队列，线程池的代码从队列提取任务，然后委派给线程池的一个线程执行，线程执行完不会被立即销毁，这样既可以在后台执行任务，又可以减少线程创建和销毁所带来的开销。</p>
+<p>线程池线程默认为后台线程（IsBackground）。</p>
+<p>复制代码<br>namespace Test<br>{<br>    class Program<br>    {<br>        static void Main(string[] args)<br>        {<br>            //将工作项加入到线程池队列中，这里可以传递一个线程参数<br>            ThreadPool.QueueUserWorkItem(TestMethod, “Hello”);<br>            Console.ReadKey();<br>        }</p>
+<pre><code>    public static void TestMethod(object data)
+    {
+        string datastr = data as string;
+        Console.WriteLine(datastr);
+    }
+}</code></pre><p>}<br>复制代码<br>五、Task类</p>
+<p>使用ThreadPool的QueueUserWorkItem()方法发起一次异步的线程执行很简单，但是该方法最大的问题是没有一个内建的机制让你知道操作什么时候完成，有没有一个内建的机制在操作完成后获得一个返回值。为此，可以使用System.Threading.Tasks中的Task类。</p>
+<p>构造一个Task<tresult>对象，并为泛型TResult参数传递一个操作的返回类型。</tresult></p>
+<p>复制代码<br>namespace Test<br>{<br>    class Program<br>    {<br>        static void Main(string[] args)<br>        {<br>            Task<int32> t = new Task<int32>(n =&gt; Sum((Int32)n), 1000);<br>            t.Start();<br>            t.Wait();<br>            Console.WriteLine(t.Result);<br>            Console.ReadKey();<br>        }</int32></int32></p>
+<pre><code>    private static Int32 Sum(Int32 n)
+    {
+        Int32 sum = 0;
+        for (; n &gt; 0; --n)
+            checked{ sum += n;} //结果太大，抛出异常
+        return sum;
+    }
+}</code></pre><p>}<br>复制代码<br>一个任务完成时，自动启动一个新任务。<br>一个任务完成后，它可以启动另一个任务，下面重写了前面的代码，不阻塞任何线程。</p>
+<p>复制代码<br>namespace Test<br>{<br>    class Program<br>    {<br>        static void Main(string[] args)<br>        {<br>            Task<int32> t = new Task<int32>(n =&gt; Sum((Int32)n), 1000);<br>            t.Start();<br>            //t.Wait();<br>            Task cwt = t.ContinueWith(task =&gt; Console.WriteLine(“The result is {0}”,t.Result));<br>            Console.ReadKey();<br>        }</int32></int32></p>
+<pre><code>    private static Int32 Sum(Int32 n)
+    {
+        Int32 sum = 0;
+        for (; n &gt; 0; --n)
+            checked{ sum += n;} //结果溢出，抛出异常
+        return sum;
+    }
+}</code></pre><p>}<br>复制代码<br>六、委托异步执行</p>
+<p>委托的异步调用：BeginInvoke() 和 EndInvoke()</p>
+<p>复制代码<br>namespace Test<br>{<br>    public delegate string MyDelegate(object data);<br>    class Program<br>    {<br>        static void Main(string[] args)<br>        {<br>            MyDelegate mydelegate = new MyDelegate(TestMethod);<br>            IAsyncResult result = mydelegate.BeginInvoke(“Thread Param”, TestCallback, “Callback Param”);</p>
+<pre><code>        //异步执行完成
+        string resultstr = mydelegate.EndInvoke(result);
+    }
+
+    //线程函数
+    public static string TestMethod(object data)
+    {
+        string datastr = data as string;
+        return datastr;
+    }
+
+    //异步回调函数
+    public static void TestCallback(IAsyncResult data)
+    {
+        Console.WriteLine(data.AsyncState);
+    }
+}</code></pre><p>}<br>复制代码<br>七、线程同步</p>
+<p>　　1）原子操作（Interlocked）：所有方法都是执行一次原子读取或一次写入操作。</p>
+<p>　　2）lock()语句：避免锁定public类型，否则实例将超出代码控制的范围，定义private对象来锁定。</p>
+<p>　　3）Monitor实现线程同步</p>
+<p>　　　　通过Monitor.Enter() 和 Monitor.Exit()实现排它锁的获取和释放，获取之后独占资源，不允许其他线程访问。</p>
+<p>　　　　还有一个TryEnter方法，请求不到资源时不会阻塞等待，可以设置超时时间，获取不到直接返回false。</p>
+<p>　　4）ReaderWriterLock</p>
+<p>　　　　当对资源操作读多写少的时候，为了提高资源的利用率，让读操作锁为共享锁，多个线程可以并发读取资源，而写操作为独占锁，只允许一个线程操作。</p>
+<p>　　5）事件（Event）类实现同步</p>
+<p>　　　　事件类有两种状态，终止状态和非终止状态，终止状态时调用WaitOne可以请求成功，通过Set将时间状态设置为终止状态。</p>
+<p>　　　　1）AutoResetEvent（自动重置事件）</p>
+<p>　　　　2）ManualResetEvent（手动重置事件）</p>
+<p>　　6）信号量（Semaphore）</p>
+<p>　　　　　　信号量是由内核对象维护的int变量，为0时，线程阻塞，大于0时解除阻塞，当一个信号量上的等待线程解除阻塞后，信号量计数+1。</p>
+<p>　　　　　　线程通过WaitOne将信号量减1，通过Release将信号量加1，使用很简单。</p>
+<p>　　7）互斥体（Mutex）</p>
+<p>　　　　　　独占资源，用法与Semaphore相似。</p>
+<p> 　 8）跨进程间的同步</p>
+<p>　　　　　　通过设置同步对象的名称就可以实现系统级的同步，不同应用程序通过同步对象的名称识别不同同步对象。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2017/02/27/C#多线程编程/" data-id="ck1ln4udk001p8wif1lt3i558" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/17/PowerDesign数据结构导出excel脚本/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/16/nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nginx+iis实现负载均衡</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js高级内容/">Js高级内容</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MVC/">MVC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netcore/">netcore</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/silverlight/">silverlight</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/回到当初/">回到当初</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/当然我在扯淡/">当然我在扯淡</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/牛人博客/">牛人博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js高级内容/">Js高级内容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/">MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netcore/">netcore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/silverlight/">silverlight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/会峰网/">会峰网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端学习/">前端学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开博客啦/">开博客啦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛逼一点/">牛逼一点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/Js高级内容/" style="font-size: 10px;">Js高级内容</a> <a href="/tags/MVC/" style="font-size: 12.5px;">MVC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/netcore/" style="font-size: 10px;">netcore</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/silverlight/" style="font-size: 10px;">silverlight</a> <a href="/tags/会峰网/" style="font-size: 10px;">会峰网</a> <a href="/tags/前端学习/" style="font-size: 10px;">前端学习</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开博客啦/" style="font-size: 20px;">开博客啦</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/牛逼一点/" style="font-size: 10px;">牛逼一点</a> <a href="/tags/美好的生活从这里开始/" style="font-size: 15px;">美好的生活从这里开始</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/C#集合IEnumerable的扩展/">C#集合IEnumerable的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/前端text树形文本转树形json/">前端text树形文本转树形json</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/01/资源分享/">快乐学习,资源共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/python-blog/">Python系统学习指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张振岭<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

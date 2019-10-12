@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>如何设计安全的用户登录功能 | 抬头望天、放肆地微笑😊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用户登录功能是Web应用系统具备的最基本的功能，关系到用户数据和应用系统数据的安全，设计一个安全的用户登录功能，涉及到以下几个方面的内容。####(一)    老生常谈——口令  口令长度与复杂度限制限制用户输入一些非常容易被破解的口令，比如qwert、asdfg、123456、password之类的，参考twitter和facebook的设计，为这样的口令做一个黑名单，不允许使用黑名单中的口令">
+<meta name="keywords" content="开博客啦">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何设计安全的用户登录功能">
+<meta property="og:url" content="https://zhangzhenling.github.io/2016/02/01/如何设计安全的用户登录功能/index.html">
+<meta property="og:site_name" content="抬头望天、放肆地微笑😊">
+<meta property="og:description" content="用户登录功能是Web应用系统具备的最基本的功能，关系到用户数据和应用系统数据的安全，设计一个安全的用户登录功能，涉及到以下几个方面的内容。####(一)    老生常谈——口令  口令长度与复杂度限制限制用户输入一些非常容易被破解的口令，比如qwert、asdfg、123456、password之类的，参考twitter和facebook的设计，为这样的口令做一个黑名单，不允许使用黑名单中的口令">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T07:20:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何设计安全的用户登录功能">
+<meta name="twitter:description" content="用户登录功能是Web应用系统具备的最基本的功能，关系到用户数据和应用系统数据的安全，设计一个安全的用户登录功能，涉及到以下几个方面的内容。####(一)    老生常谈——口令  口令长度与复杂度限制限制用户输入一些非常容易被破解的口令，比如qwert、asdfg、123456、password之类的，参考twitter和facebook的设计，为这样的口令做一个黑名单，不允许使用黑名单中的口令">
+  
+    <link rel="alternate" href="/atom.xml" title="抬头望天、放肆地微笑😊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">抬头望天、放肆地微笑😊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zhangzhenling.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-如何设计安全的用户登录功能" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/01/如何设计安全的用户登录功能/" class="article-date">
+  <time datetime="2016-01-31T16:00:00.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/当然我在扯淡/">当然我在扯淡</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何设计安全的用户登录功能
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> <em>用户登录功能是Web应用系统具备的最基本的功能，关系到用户数据和应用系统数据的安全，设计一个安全的用户登录功能，涉及到以下几个方面的内容。</em><br>####(一)    老生常谈——口令</p>
+<ol>
+<li><p>口令长度与复杂度限制<br>限制用户输入一些非常容易被破解的口令，比如qwert、asdfg、123456、password之类的，参考twitter和facebook的设计，为这样的口令做一个黑名单，不允许使用黑名单中的口令。同时，还对用户口令的长度、复杂度进行检查，要求用户设置足够长度，且复杂度符合安全策略的口令。<br>在口令安全的这个方面，用户体验和安全可能是相对的。限制用户输入某些口令及口令的长度和复杂度，在用户体验方面可能并不太好。所以，很多成功且设计良好的社交网站（SNS）都提供了UX让用户知道他的口令强度是什么样的，这样可以让用户有一个选择，目的就是告诉用户——要想安全，先把口令设得好一点。</p>
+</li>
+<li><p>不要明文保存用户的口令<br>用户都会用相同的ID相同的口令来登录很多网站。所以，如果Web应用系统明文保存口令的话，那么，数据被不良员工流传出去那对用户将是灾难性的。所以，用户的口令一定要加密保存，最好是用不可逆的加密，但不要直接使用诸如MD5或是SHA1之类加密算法。</p>
+</li>
+<li><p>不要让浏览器保存口令<br>浏览器记住口令，对用户来说是很方便的事，因为用户不可能记住那么多的口令，只能借助于某些工具帮助记忆，浏览器只是其中的一种。但对于用户数据的安全来说，有很多方法可以获取浏览器记住的口令。所以，不要让浏览器保存用户名和口令。<br>(二)    用户登录状态<br>HTTP是无状态的协议，是无法记录用户访问状态的。用户的每次请求都是独立的无关联的，一笔是一笔。而我们的Web应用系统都是设计成多个页面的，在页面跳转过程中我们需要知道用户的状态，尤其是用户登录的状态，这样我们在页面跳转后我们才知道是否可以让用户有权限来操作一些功能或是查看一些数据。<br>我们每个页面都需要对用户的身份进行认证。当然，我们不可能让用户在每个页面上输入用户名和口令。为了实现这一功能，Web应用系统会把用户登录的信息存放在客户端的Cookie里，每个页面都从这个Cookie里获得用户是否登录的信息，从而达到记录状态，验证用户的目的。但是，Cookie的使用并不是简单的事，下面是使用Cookie的一些原则。</p>
+</li>
+<li><p>千万不要在Cookie中存放用户的密码<br>千万不要在Cookie中存放用户的密码，加密的密码都不行。因为这个密码可以被人获取并尝试离线穷举。所以，一定不能把用户的密码保存在Cookie中。</p>
+</li>
+<li><p>正确的设计“记住密码”<br>这个功能简直就是一个安全隐患，通常的设计是用户户勾选了这个功能，系统会生成一个Cookie。Cookie包括用户名和一个固定的散列值，这个固定的散列值一直使用。这样，可以在所有的设备和客户上都可以登录，而且可以有多个用户同时登录。更安全一点的做法是：<br>1)    在Cookie中，保存三个东西——用户名，登录序列，登录Token<br>List<br>-用户名：明文存放。<br>-登录序列：一个被MD5散列过的随机数，仅当强制用户输入口令时更新（如：用户修改了口令）。<br>-登录Token：一个被MD5散列过的随机数，仅一个登录Session内有效，新的登录Session会更新它。<br>2)    上述三个要素会存在服务器上，服务器需要验证客户端Cookie里的这三个要素。<br>登录Token是单实例登录，意思就是一个用户只能有一个登录实例。登录序列是用来做盗用行为检测的。<br>如果用户的Cookie被盗后，盗用者使用这个Cookie访问网站时，我们的系统是以为是合法用户，然后更新“登录Token”。而真正的用户回来访问时，系统发现只有“用户名”和“登录序列”相同，但是“登录Token” 不对，这样的话，系统就知道，这个用户可能出现了被盗用的情况。于是，系统可以清除并更改登录序列 和 登录Token，这样就可以令所有的Cookie失效，并要求用户输入口令。并给警告用户系统安全。</p>
+</li>
+<li><p>不要让Cookie有权限访问所有的操作<br>参考新浪微博的XSS攻击，即使Cookie有权限访问登录之后的所有操作。下面的这些功能一定要用户输入口令：<br>List<br>-修改口令。<br>-修改电子邮件。<br>-用户的隐私信息。<br>-涉及金钱的用户消费功能。<br>(三)    找回口令功能<br>找回口令的功能一定要提供，目前常用的找回口令功能大致有以下几种：<br>1)    安全问答。<br>事实证明，这个环节很烦人，而且用户并不能很好的设置安全问答。什么，我的生日啊，我母亲的生日，等等。因为今天的互联网和以前不一样了，因为SNS，今天的互联比以前更真实了，在facebook，开心，人人网，LinkedIn查到很多的真实的信息。<br>2)    重置用户的密码。<br>这有可能让用户的密码遭到恶意攻击<br>3)    安全一点的做法——通过邮件自行重置。<br>当用户申请找回口令功能的时候，系统生成一个MD5唯一的随机字串（可通过UID+IP+timestamp+随机数），放在数据库中，然后设置上时限（比如1小时内），给用户发一个邮件，这个连接中包含那个MD5的字串的链接，用户通过点击那个链接来自己重新设置新的口令。<br>4)    更安全一点的做法——多重认证。<br>比如：通过手机+邮件的方式让用户输入验证码，还可以使用数字证书、动态口令等方式。是否使用多重认证，主要取决于Web应用系统的重要性程度。<br>(四)    防御暴力破解<br>1)    使用验证码。<br>验证码是后台随机产生的一个短暂的验证码，这个验证码一般是一个计算机很难识别的图片。这样就可以防止以程序的方式来尝试用户的口令。<br>事实证明，这是最简单也最有效的方式。当然，总是让用户输入那些肉眼都看不清的验证码的用户体验不好，所以，可以折中一下。比如Google，当发现一个IP地址发出大量的搜索后，其会要求你输入验证码。<br>2)    用户口令失败次数<br>设置口令失败的上限，如果失败过多，则把帐号锁了，需要用户以找回口令的方式来重新激活帐号。<br>但是，这个功能可能会被恶意人使用，造成用户账户不能使用（这是一种变相的拒绝服务攻击）。更好的方法是，结合IP地址做验证，同时增加尝试破解的时间成本。如，两次口令尝试的间隔是5秒钟。三次以上错误，帐号被临时锁上30秒，5次以上帐号被锁1分钟，10次以上错误帐号被锁4小时等等。如果发现来自同一IP地址的错误次数太多，正确的做法是禁止这个用户在这个IP地址登录，而不是单纯的禁止用户登录。</p>
+</li>
+</ol>
+<p>##同时推荐博客<a href="http://coolshell.cn/articles/5353.html" target="_blank" rel="noopener">你会做Web上的用户登录功能吗？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/02/01/如何设计安全的用户登录功能/" data-id="ck1ln4ucx000c8wif9h9op0ee" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开博客啦/">开博客啦</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/02/Mongodb内部原理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mongodb内部原理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/09/Linux学习相关链接/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">你好，Linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js高级内容/">Js高级内容</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MVC/">MVC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netcore/">netcore</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/silverlight/">silverlight</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/回到当初/">回到当初</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/当然我在扯淡/">当然我在扯淡</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/牛人博客/">牛人博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js高级内容/">Js高级内容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/">MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netcore/">netcore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/silverlight/">silverlight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/会峰网/">会峰网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端学习/">前端学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开博客啦/">开博客啦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛逼一点/">牛逼一点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/Js高级内容/" style="font-size: 10px;">Js高级内容</a> <a href="/tags/MVC/" style="font-size: 12.5px;">MVC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/netcore/" style="font-size: 10px;">netcore</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/silverlight/" style="font-size: 10px;">silverlight</a> <a href="/tags/会峰网/" style="font-size: 10px;">会峰网</a> <a href="/tags/前端学习/" style="font-size: 10px;">前端学习</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开博客啦/" style="font-size: 20px;">开博客啦</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/牛逼一点/" style="font-size: 10px;">牛逼一点</a> <a href="/tags/美好的生活从这里开始/" style="font-size: 15px;">美好的生活从这里开始</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/C#集合IEnumerable的扩展/">C#集合IEnumerable的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/前端text树形文本转树形json/">前端text树形文本转树形json</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/01/资源分享/">快乐学习,资源共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/python-blog/">Python系统学习指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张振岭<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

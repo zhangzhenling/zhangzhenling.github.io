@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>多级反向代理下，C#获取请求客户端的真实IP地址的方法. | 抬头望天、放肆地微笑😊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768using System;using System.Collections.Generic;using System.Linq;using Sys">
+<meta name="keywords" content="MVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多级反向代理下，C#获取请求客户端的真实IP地址的方法.">
+<meta property="og:url" content="https://zhangzhenling.github.io/2018/08/16/多级反向代理下，C#获取请求客户端的真实IP地址的方法/index.html">
+<meta property="og:site_name" content="抬头望天、放肆地微笑😊">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768using System;using System.Collections.Generic;using System.Linq;using Sys">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T07:20:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多级反向代理下，C#获取请求客户端的真实IP地址的方法.">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768using System;using System.Collections.Generic;using System.Linq;using Sys">
+  
+    <link rel="alternate" href="/atom.xml" title="抬头望天、放肆地微笑😊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">抬头望天、放肆地微笑😊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zhangzhenling.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-多级反向代理下，C#获取请求客户端的真实IP地址的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/16/多级反向代理下，C#获取请求客户端的真实IP地址的方法/" class="article-date">
+  <time datetime="2018-08-15T16:00:00.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多级反向代理下，C#获取请求客户端的真实IP地址的方法.
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Net.NetworkInformation;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"><span class="keyword">using</span> System.Web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">RfSoft.MapleTr.Framework.Core.Utilities</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">RequestHelper</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 获取客户端IP地址</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> ClientIP</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">var</span> request = HttpContext.Current.Request;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                String ipAddress = request.Headers.Get(<span class="string">"x-forwarded-for"</span>);</span><br><span class="line">                <span class="keyword">if</span> (ipAddress == <span class="literal">null</span> || ipAddress.Length == <span class="number">0</span> || <span class="string">"unknown"</span>.Equals(ipAddress, StringComparison.InvariantCultureIgnoreCase))</span><br><span class="line">                &#123;</span><br><span class="line">                    ipAddress = request.Headers.Get(<span class="string">"Proxy-Client-IP"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ipAddress == <span class="literal">null</span> || ipAddress.Length == <span class="number">0</span> || <span class="string">"unknown"</span>.Equals(ipAddress, StringComparison.InvariantCultureIgnoreCase))</span><br><span class="line">                &#123;</span><br><span class="line">                    ipAddress = request.Headers.Get(<span class="string">"WL-Proxy-Client-IP"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ipAddress == <span class="literal">null</span> || ipAddress.Length == <span class="number">0</span> || <span class="string">"unknown"</span>.Equals(ipAddress, StringComparison.InvariantCultureIgnoreCase))</span><br><span class="line">                &#123;</span><br><span class="line">                    ipAddress = request.UserHostAddress;</span><br><span class="line">                    <span class="keyword">if</span> (ipAddress.Equals(<span class="string">"127.0.0.1"</span>) || ipAddress.Equals(<span class="string">"0:0:0:0:0:0:0:1"</span>))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">//根据网卡取本机配置的IP  </span></span><br><span class="line">                        NetworkInterface inet = NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault();</span><br><span class="line">                        <span class="keyword">try</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            ipAddress = inet.GetIPProperties().WinsServersAddresses.FirstOrDefault().ToString();</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(ex.Message);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割  </span></span><br><span class="line">                <span class="keyword">if</span> (ipAddress != <span class="literal">null</span> &amp;&amp; ipAddress.Length &gt; <span class="number">15</span>)</span><br><span class="line">                &#123; <span class="comment">//"***.***.***.***".length() = 15  </span></span><br><span class="line">                    <span class="keyword">if</span> (ipAddress.IndexOf(<span class="string">","</span>) &gt; <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        ipAddress = ipAddress.Substring(<span class="number">0</span>, ipAddress.IndexOf(<span class="string">","</span>));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> ipAddress;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//var clientIP = request.Headers.Get("x-forwarded-for");</span></span><br><span class="line">                <span class="comment">//if (string.IsNullOrEmpty(clientIP))</span></span><br><span class="line">                <span class="comment">//&#123;</span></span><br><span class="line">                <span class="comment">//    return request.UserHostAddress;</span></span><br><span class="line">                <span class="comment">//&#125;</span></span><br><span class="line">                <span class="comment">//return clientIP;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2018/08/16/多级反向代理下，C#获取请求客户端的真实IP地址的方法/" data-id="ck1ln4udy002g8wifi78r3pr6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/13/netcore使用技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          netcore使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/19/MVC相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MVC相关</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js高级内容/">Js高级内容</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MVC/">MVC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netcore/">netcore</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/silverlight/">silverlight</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/回到当初/">回到当初</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/当然我在扯淡/">当然我在扯淡</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/牛人博客/">牛人博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js高级内容/">Js高级内容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/">MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netcore/">netcore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/silverlight/">silverlight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/会峰网/">会峰网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端学习/">前端学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开博客啦/">开博客啦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛逼一点/">牛逼一点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/Js高级内容/" style="font-size: 10px;">Js高级内容</a> <a href="/tags/MVC/" style="font-size: 12.5px;">MVC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/netcore/" style="font-size: 10px;">netcore</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/silverlight/" style="font-size: 10px;">silverlight</a> <a href="/tags/会峰网/" style="font-size: 10px;">会峰网</a> <a href="/tags/前端学习/" style="font-size: 10px;">前端学习</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开博客啦/" style="font-size: 20px;">开博客啦</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/牛逼一点/" style="font-size: 10px;">牛逼一点</a> <a href="/tags/美好的生活从这里开始/" style="font-size: 15px;">美好的生活从这里开始</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/C#集合IEnumerable的扩展/">C#集合IEnumerable的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/前端text树形文本转树形json/">前端text树形文本转树形json</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/01/资源分享/">快乐学习,资源共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/python-blog/">Python系统学习指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张振岭<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>抬头望天、放肆地微笑😊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="抬头望天、放肆地微笑😊">
+<meta property="og:url" content="https://zhangzhenling.github.io/page/3/index.html">
+<meta property="og:site_name" content="抬头望天、放肆地微笑😊">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抬头望天、放肆地微笑😊">
+  
+    <link rel="alternate" href="/atom.xml" title="抬头望天、放肆地微笑😊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">抬头望天、放肆地微笑😊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zhangzhenling.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Ubuntu下线刷小米" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/15/Ubuntu下线刷小米/" class="article-date">
+  <time datetime="2016-07-14T16:00:00.000Z" itemprop="datePublished">2016-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/15/Ubuntu下线刷小米/">Ubuntu中线刷小米</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、打开终端<br>线刷当然离不开fastboot工具啦，最直接使用fastboot的方法当然是打开终端（快捷键Ctrl+Alt+T）使用命令啦！</p>
+<p>2、安装fastboot工具<br>打开终端后楼主就迫不及待地输入fastboot，可没想到回车后出现了这个提示“程序fastboot尚未安装，您可以使用以下命令安装。。。。。”</p>
+<p>那还等什么？？当然是赶紧输入</p>
+<pre><code>sudo apt-get install android-tools-fastboot</code></pre><p>输入密码按回车之后fastboot工具就安装好啦{:5_199:}</p>
+<p>3、测试fastboot<br>楼主这时将手机重启进入fastboot模式并插上电脑，想试试fastboot能否识别到手机，于是便输入<br>fastboot device之后能否搜索得到手机，可是，事与愿违，显示的竟是“waiting for device“，这是为什么呢？<br>原来fastboot是需要最高权限的，于是楼主改了命令<br>sudo fastboot device果然就有反应了。</p>
+<p>4、将刷机包解包<br>双击打开.tgz的线刷包，提取到你想要的位置</p>
+<p>5、执行刷机包内的flash_all.sh进行线刷<br>在终端输入<br>sudo sh /路径/flash_all.sh输入密码回车后即可开始线刷</p>
+<p>完成后手机便自动重启。</p>
+<p>6、进入系统<br>楼主心惊胆战地等待着，还好，总算是有惊无险地进入了系统，映入眼帘的是既熟悉又陌生的MIUI 6，这让楼主好感动{:3_51:}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/15/Ubuntu下线刷小米/" data-id="ck1ln4udh001k8wifw3o6a2wv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu个人分区" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/13/Ubuntu个人分区/" class="article-date">
+  <time datetime="2016-07-12T16:00:00.000Z" itemprop="datePublished">2016-07-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/13/Ubuntu个人分区/">Ubuntu分区</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>===</p>
+<ul>
+<li>/boot   ext4    200m    主分区</li>
+<li>/       ext4    15G-30G 逻辑分区(新手暂时去30G)</li>
+<li>/swap   ext4    12G     逻辑分区</li>
+<li>/home   ext4    剩余全部 逻辑分区</li>
+</ul>
+<p>===</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/13/Ubuntu个人分区/" data-id="ck1ln4udf001f8wifi5hzt9fg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-前端学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/11/前端学习/" class="article-date">
+  <time datetime="2016-07-10T16:00:00.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/当然我在扯淡/">当然我在扯淡</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/前端学习/">搜集的博客和文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、前端观察"><a href="#1、前端观察" class="headerlink" title="1、前端观察"></a>1、<a href="https://www.qianduan.net" target="_blank" rel="noopener">前端观察</a></h3><h3 id="2、利用火狐的插件Dust-Me-来检测出网页中没有利用到的css样式，然后做清除！节省流量带宽，提升速度"><a href="#2、利用火狐的插件Dust-Me-来检测出网页中没有利用到的css样式，然后做清除！节省流量带宽，提升速度" class="headerlink" title="2、利用火狐的插件Dust-Me 来检测出网页中没有利用到的css样式，然后做清除！节省流量带宽，提升速度"></a>2、利用火狐的插件Dust-Me 来检测出网页中没有利用到的css样式，然后做清除！节省流量带宽，提升速度</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/11/前端学习/" data-id="ck1ln4ude001c8wifg15jdi4n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端学习/">前端学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu博客吧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/Ubuntu博客吧/" class="article-date">
+  <time datetime="2016-07-08T16:00:00.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/Ubuntu博客吧/">Ubuntu 学习博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1、 <a href="http://www.linuxdiyf.com/linux/20684.html" target="_blank" rel="noopener">一些基础</a><br>##2、<a href="http://www.playubuntu.cn/article/221.html" target="_blank" rel="noopener">ubuntu学习入门必懂7个技巧</a><br>##3、<a href="http://www.cricode.com/2866.html" target="_blank" rel="noopener">10分钟教你玩转Linux</a><br>##4、<a href="http://wenku.it168.com/wenji/693" target="_blank" rel="noopener">菜鸟也能玩转Ubuntu：Ubuntu入门到精通</a><br>##5、<a href="http://www.ubuntukylin.com/ask/" target="_blank" rel="noopener">Ubuntu麒麟官网也不失为一个学习的网站</a><br>##6、<a href="http://blog.csdn.net/arcsinsin/article/details/17143163" target="_blank" rel="noopener">Ubuntu系统详细分区和系统恢复</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/09/Ubuntu博客吧/" data-id="ck1ln4uda00138wif18ootz2h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IIS部署和常见问题总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/IIS部署和常见问题总结/" class="article-date">
+  <time datetime="2016-07-08T16:00:00.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/当然我在扯淡/">当然我在扯淡</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/IIS部署和常见问题总结/">IIS系列学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+
+<p><a href="http://wenku.baidu.com/link?url=dKcWlxPTPfybm5Kpg7eFKtMAdPFuHL2a79OZ6Me0mU_sh1gXqgm5Qzl9JlhVJ-6iJSQHavC6N_QN1eDUAB87DgssR2vGGRYA3sD2ZrRBuDO###" target="_blank" rel="noopener">windows2008 服务器安装IIS教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/09/IIS部署和常见问题总结/" data-id="ck1ln4udb00158wifnb84gclx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开博客啦/">开博客啦</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu学习吧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/09/Ubuntu学习吧/" class="article-date">
+  <time datetime="2016-07-08T16:00:00.000Z" itemprop="datePublished">2016-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/Ubuntu学习吧/">Ubuntu系列文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="titiletext">ubuntu系统维护</h2>
+
+<div id="articlecontent" class="article_container" onmousedown="newhighlight = true;" onmouseup="NewHighlight(event);">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td id="artContent">
+                                    <div class="postTitle"><a id="ctl02_TitleUrl" class="postTitle2" href="http://www.cnblogs.com/yc_sunniwell/archive/2010/07/15/1778265.html" target="_blank" rel="noopener"><font color="#555555">ubuntu清理系统垃圾与备份</font></a> </div>
+<div id="cnblogs_post_body">
+<p>虽然linux下不会有windows下的那么多垃圾和磁盘碎片!但还是会留下一些用不着的临时文件或是多次升级后的N个旧的内核!</p>
+<p>1，非常有用的清理命令：<br><b>sudo apt-get autoclean<br>sudo apt-get clean<br></b></p>
+<p><b>sudo apt-get autoremove</b>这三个命令主要清理<span style="COLOR: #ff0000">升级缓存以及无用包的</span>。</p>
+<p>2，<span style="COLOR: #ff0000">清理opera firefox的缓存文件</span>：<br><b>ls ~/.opera/cache4<br>ls ~/.mozilla/firefox/*.default/Cache</b></p>
+<p>3，<span style="COLOR: #ff0000">清理Linux下孤立的包</span>：<br>图形界面下我们可以用：gtkorphan<br>sudo apt-get install gtkorphan -y</p>
+<p>终端命令下我们可以用：deborphan<br><b>sudo apt-get install deborphan -y</b></p>
+<p>4，<span style="COLOR: #ff0000">卸载：tracker</span><br>这个东西一般我只要安装ubuntu就会第一删掉tracker 他不仅会产生大量的cache文件而且还会影响开机速度。所以在新得利里面删掉就行。</p>
+<p>5，<span style="COLOR: #ff0000">删除多余的内核</span>：一定不要删错哦，切记！！<br>打开终端敲命令：dpkg –get-selections|grep linux<br>有image的就是内核文件<br>删除老的内核文件：<br>sudo apt-get remove 内核文件名 （例如：linux-image-2.6.27-2-generic）<br>内核删除，释放空间了，应该能释放130－140M空间。<br>最后不要忘了看看当前内核：uname -a</p>
+<p>附录： (包管理的临时文件目录)<br>包在: /var/cache/apt/archives</p>
+<p>没有下载完的在: /var/cache/apt/archives/partial</p>
+<p>6. <span style="COLOR: #ff0000">备份系统</span>, 打开终端，输入以下命令：</p>
+<p>1) 成为根用户：&nbsp;&nbsp; sudo su</p>
+<p>2) 转到根目录：&nbsp;&nbsp; cd /</p>
+<p>然後，下面就是我用来备份我的系统的完整的命令：<br>tar -cvpzf /media/sda7/backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/media /</p>
+<p>接着，让我们稍微解释一下：<br>tar 是用来备份的程序<br>c - 新建一个备份文档<br>v - 详细模式， tar程序将在屏幕上实时输出所有信息。<br>p - 保存许可，并应用到所有文件。<br>z - 采用‘gzip’压缩备份文件，以减小备份文件体积。<br>f - 说明备份文件存放的路径， /media/sda7/backup.tgz 是本例子中备份文件名。这个备份文件备份的位置是其它分区，也就是原来的WIN分区中。因为我的根目录的空间不足，所以只有备份在其它的地方了。<br>来看看我们想要包含的目录。我们不想备份所有的东西，因为有些目录是没有多大用处的。确认你不想包含的文件，否则您会得到一个很奇怪的结果。您也不必备份 /mnt 目录下的东西，除非您有其他分区挂在它下面或者你坚持要备份。您还必须确保没有任何资源挂在 /media目录下(比如，任何CD或者移动存储介质).否则，剔除/media。<br>* 最後一个参数是我们想要保存的目录. 我们想要保存所有的东西，使用 / 作为根目录。</p>
+<p>然后就是将来还原系统备份了：</p>
+<p>警告: 求您了，看在上帝的份上，千万小心这儿。如果您不明白您正在干什么，那很有可能复盖掉您重要的数据，所以请特别小心！</p>
+<p>好了，继续我们前面所讲的例子，我们在其它分区（sda7）目录下创建了一个名为backup.tgz的备份文件。</p>
+<p>Linux中美妙的事情之一就是在系统正在运行的情况下可以进行还原操作，而不需要启动光盘或者其他任何乱七八糟的东西。当然，如果您的系统已经崩溃，那您必须选择使用live CD，但是结果还是一样。你甚至可以在Linux系统正在运行的时候，移除它里面所有文件。可是我不告诉你那个命令！</p>
+<p>好了，言归正传。这是我要用的命令，如果你的备份不是在和我一样的位置的位置的话，那请相应地修改/media/sda7这一点：</p>
+<p>tar -xvpzf /media/disk/backup.tgz -C /</p>
+<p>如果您使用的是bz2压缩的：</p>
+<p>tar -xvpjf /media/disk/backup.tar.bz2 -C /</p>
+<p>+++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p>U<b>buntu常用的命令 </b>http://hi.baidu.com/ycerror/blog/item/41a9272d62a9ab3e359bf71a.html</p>
+<p>+++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p>查看软件xxx安装内容：dpkg -L xxx<br>查找软件库中的软件：apt-cache search 正则表达式<br>查找软件库中的软件：aptitude search 软件包<br>查找文件属于哪个包：dpkg -S filename<br>查找文件属于哪个包：apt-file search filename<br>查询软件xxx依赖哪些包：apt-cache depends xxx<br>查询软件xxx被哪些包依赖：apt-cache rdepends xxx<br>增加一个光盘源：sudo apt-cdrom add<br>系统升级：sudo apt-get update;sudo apt-get dist-upgrade<br>清除已删除包的残馀配置文件：dpkg -l |grep ^rc|awk ‘{print $2}’ |sudo xargs dpkg -P<br>编译时缺少h文件的自动处理：sudo auto-apt run ./configure<br>查看安装软件时下载包的临时存放目录：ls /var/cache/apt/archives<br>备份当前系统安装的所有包的列表：dpkg –get-selections | grep -v deinstall &gt; ~/somefile<br>从备份的安装包的列表文件恢复所有包：dpkg –set-selections &lt; ~/somefile;sudo dselect<br>清理旧版本的软件缓存：sudo apt-get autoclean<br>清理所有软件缓存：sudo apt-get clean<br>删除系统不再使用的孤立软件：sudo apt-get autoremove<br>查看包在服务器上面的地址：apt-get -qq –print-uris install ssh | cut -d\’ -f2<br>查看内核：uname -a<br>查看Ubuntu版本：cat /etc/issue 或 lsb_release -a<br>查看内核加载的模块：lsmod<br>查看PCI设备：lspci<br>查看USB设备：lsusb -v<br>查看网卡状态：sudo ethtool eth0<br>查看CPU信息：cat /proc/cpuinfo<br>显示当前硬件信息：sudo lshw<br>显示系统运行时间：uptime<br>查看硬盘的分区：sudo fdisk -l<br>硬盘分区：sudo fdisk /dev/sda<br>硬盘格式化：sudo mkfs.ext3 /dev/sda1<br>硬盘检查(请不要检查已经挂载的分区，否则容易损坏数据)：sudo fsck /dev/sda1<br>分区挂载：sudo mount -t 文件系统类型 (-o nls=utf8 或 -o iocharset=utf8) 设备路经 访问路经<br>分区卸载：sudo umount 目录名或设备名<br>查看IDE硬盘信息：sudo hdparm -i /dev/hda<br>查看STAT硬盘信息 ：sudo hdparm -I /dev/sda 或 sudo blktool /dev/sda id<br>查看硬盘剩馀空间：df<br>查看目录占用空间：du -hs 目录名<br>优盘没法卸载：sync;fuser -km /media/usbdisk<br>查看硬盘当前读写情况：sudo iostat -x 2<br>查看当前的内存使用情况：free<br>动态显示进程执行情况：top<br>查看当前有哪些进程：ps -A<br>查看当前进程树：pstree<br>中止一个进程：kill 进程号 或 killall 进程名<br>强制中止一个进程：kill -9 进程号 或 killall -9 进程名<br>图形方式中止一个程序：xkill 出现骷髅标志的鼠标，点击需要中止的程序即可<br>查看进程打开的文件：lsof -p<br>显示开启文件abc.txt的进程 ：lsof abc.txt<br>显示22端口现在运行什么程序 ：lsof -i :22<br>显示nsd进程现在打开的文件 ：lsof -c nsd<br>在后台运行程序，退出登录后，并不结束程序 ：nohup 程序 &amp;<br>详细显示程序的运行信息 ：strace -f -F -o outfile<br>增加系统最大打开文件个数：ulimit -n 4096 或 echo 4096 &gt; /proc/sys/fs/file-max<br>配置 ADSL ：sudo pppoeconf<br>ADSL手工拨号：sudo pon dsl-provider<br>激活 ADSL：sudo /etc/ppp/pppoe_on_boot<br>断开 ADSL ：sudo poff<br>查看拨号日志：sudo plog<br>如何设置动态域名：w3m -no-cookie -dump ‘http://usere:pass@members.3322.org/dyndns/update?system=dyndns&amp;hostname=yourdns.3322.org’<br>根据IP查网卡地址 ：arping IP地址<br>根据IP查电脑名 ：nmblookup -A IP地址<br>查看当前IP地址 ：ifconfig eth0 |awk ‘/inet/ {split($2,x,”:”);print x[2]}’<br>查看当前外网的IP地址 ：w3m -no-cookie -dump www.123cha.com|grep -o ‘[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}’<br>查看当前监听80端口的程序 ：lsof -i :80<br>查看当前网卡的物理地址：arp -a | awk ‘{print $4}’<br>同一个网卡增加第二个IP地址 ：sudo ifconfig eth0:0 1.2.3.4 netmask 255.255.255.0<br>立即让网络支持nat ：echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward; sudo iptables -t nat -I POSTROUTING -j MASQUERADE<br>查看路由信息：netstat -rn 或 sudo route -n<br>手工增加一条路由 ：sudo route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1<br>手工删除一条路由：sudo route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1<br>修改网卡MAC地址的方法 ：sudo ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE<br>统计当前IP连接的个数 ：netstat -na|grep ESTABLISHED|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n<br>屏蔽IPV6 ：echo ‘blacklist ipv6′ | sudo tee /etc/modprobe.d/blacklist-ipv6<br>察看当前网络连接状况以及程序 ：sudo netstat -atnp<br>查看ADSL的当前流量：sudo ethstatus -i ppp0<br>查看域名的注册备案情况：whois baidu.cn<br>查看到某一个域名的路由情况：tracepath baidu.cn<br>重新从服务器获得IP地址 ：sudo dhclient<br>下载网站文档：wget -r -p -np -k http://www.xxx.com<br>如何5个线程下载：axel -n 5 http://www.xxx.com/downloadfile.zip<br>添加一个服务：sudo update-rc.d 服务名 defaults 99<br>删除一个服务 ：sudo update-rc.d 服务名 remove<br>临时重启一个服务：/etc/init.d/服务名 restart<br>临时关闭一个服务：/etc/init.d/服务名 stop<br>临时启动一个服务：/etc/init.d/服务名 start<br>增加用户：sudo adduser 用户名<br>删除用户：sudo deluser 用户名<br>修改当前用户的密码：passwd<br>修改用户密码：sudo passwd 用户名<br>修改用户资料：sudo chfn userid<br>如何禁用某个帐户：sudo usermod -L 用户名 或 sudo passwd -l 用户名<br>如何启用某个帐户：sudo usermod -U 用户名 或 sudo passwd -u 用户名<br>增加用户到admin组：sudo usermod -G admin -a 用户名<br>配置默认Java使用哪个 ：sudo update-alternatives –config java<br>终端设置代理 ：export http_proxy=http://xx.xx.xx.xx:xxx<br>修改系统登录信息：sudo vim /etc/motd<br>使用sun的java编译器：sudo update-java-alternatives -s java-6-sun<br>切换输入法引擎：im-switch -c<br>转换文件名由GBK为UTF8 ：convmv -r -f cp936 -t utf8 –notest –nosmart *<br>转换文件内容由GBK到UTF8 ：iconv -f gbk -t utf8 $i &gt; newfile<br>转换 mp3 标签编码 ：sudo apt-get install python-mutagen;find . -iname ‘*.mp3′ -execdir mid3iconv -e GBK {} \;<br>控制台下显示中文 ：sudo apt-get install zhcon;zhcon –utf8 –drv=vga<br>lftp 登录远程Windows中文FTP　：lftp :~&gt;set ftp:charset GBK<br>PDF 文件乱码 ：sudo apt-get install xpdf-chinese-simplified xpdf-chinese-traditional poppler-data<br>一屏查看文件内容 ：cat 文件名<br>分页查看文件内容：more 文件名<br>可控分页查看文件内容：less 文件名<br>根据字符串匹配来查看文件部分内容：grep 字符串 文件名<br>显示包含字符串的文件名：grep -l -r 字符串 路径<br>显示不包含字符串的文件名：grep -L -r 字符串 路径<br>快速查找某个文件：find 目录 -name 文件名<br>创建两个空文件：touch file1 file2<br>递归式创建一些嵌套目录：mkdir –p /tmp/xxs/dsd/efd<br>递归式删除嵌套目录：rm –fr /tmp/xxs<br>回当前用户的宿主目录：cd ~<br>查看当前所在目录的绝对路经：pwd<br>列出当前目录下的所有文件：ls -a<br>移动路径下的文件并改名：mv 路径/文件 /新路径/新文件名<br>复制文件或者目录：cp -av 原文件或原目录 新文件或新目录<br>查看文件类型：file filename<br>对比两个文件之间的差异：diff file1 file2<br>显示xxx文件倒数6行的内容 ：tail -n 6 xxx<br>不停地显示最新的内容 ：tail -n 10 -f /var/log/apache2/access.log<br>查看文件第五行到第10行的内容 ：sed -n ‘5,10p’ /var/log/apache2/access.log<br>查找关于xxx的命令 ：apropos xxx 或 man -k xxx<br>通过ssh传输文件 ：scp -rp /path/filename username@remoteIP:/path<br>把所有文件的后辍由rm改为rmvb ：rename ’s/.rm$/.rmvb/’ *<br>把所有文件名中的大写改为小写：rename ‘tr/A-Z/a-z/’ *<br>删除特殊文件名 –help.txt 的文件：rm — –help.txt 或 rm ./–help.txt<br>查看当前目录的子目录：ls -d */. 或 echo */.<br>将最近30天访问过的文件移动到上级back目录 ：find . -type f -atime -30 -exec mv {} ../back \;<br>显示一小时以内的包含 xxxx 的文件：find . -type f -mmin -60|xargs -i grep -l xxxx ‘{}’<br>显示最近2小时到8小时之内的文件：find . -mmin +120 -mmin -480 -exec more {} \;<br>删除修改时间在30天之前的文件 ：find . -type f -mtime +30 -mtime -3600 -exec rm {} \;<br>删除创建时间在30天之前的文件 ：find . -type f -ctime +30 -ctime -3600 -exec rm {} \;<br>删除掉guest的以avi或rm结尾的文件：find . -name ‘*.avi’ -o -name ‘*.rm’ -user ‘guest’ -exec rm {} \;<br>删除掉不以java和xml结尾7天没有使用的文件 ：find . ! -name *.java ! -name ‘*.xml’ -atime +7 -exec rm {} \;<br>删除所有的 .svn 目录 ：find . -name .svn -type d -exec rm -fr {} \;<br>删除所有以“~”结尾的临时文件 ：find . -name ‘*~’ -exec rm {} \;<br>统计当前文件个数：ls .|wc -w<br>统计当前目录个数：ls -l |grep ^d|wc -l<br>显示当前目录下2006-01-01的文件名 ：ls -l |grep 2006-01-01 |awk ‘{print $8}’<br>使用ssh方式同步远程数据到本地目录 ：rsync -Pa -I –size-only –delete –timeout=300 Remote_IP:/home/ubuntu /backup<br>增加 7Z 压缩软件：sudo apt-get install p7zip p7zip-full p7zip-rar<br>增加 rar 软件压缩和解压缩支持 ：sudo apt-get install rar unrar<br>解压缩 xxx.tar.gz ：tar -zxvf xxx.tar.gz<br>解压缩 xxx.tar.bz2 ：tar -jxvf xxx.tar.bz2<br>压缩aaa bbb目录为xxx.tar.gz ：tar -zcvf xxx.tar.gz aaa bbb<br>压缩aaa bbb目录为xxx.tar.bz2 ：tar -jcvf xxx.tar.bz2 aaa bbb<br>增加 lha 支持 ：sudo apt-get install lha<br>增加解 cab 文件支持 ：sudo apt-get install cabextract<br>显示日历：cal<br>设置日期：date -s mm/dd/yy<br>设置时间：date -s HH:MM<br>将时间写入CMOS ：hwclock –systohc<br>查看CMOS时间 ：hwclock –show<br>读取CMOS时间 ：hwclock –hctosys<br>从服务器上同步时间 ：sudo ntpdate ntp.ubuntu.com<br>设置电脑的时区为上海：sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime<br>关闭UTC，将当前时间写入CMOS。：sudo sed -ie ’s/UTC=yes/UTC=no/g’ /etc/default/rcS;sudo hwclock –systohc<br>修改mysql的root口令 ：sudo mysqladmin -u root -p password ‘你的新密码’<br>如何使用命令关闭显示器 ：xset dpms force off<br>设置CPU的频率 ：sudo apt-get install cpufrequtils;sudo cpufreq-info<br>命令关机：sudo halt<br>现在关机：sudo shutdown -h now<br>晚上11点自动关机：sudo shutdown -h 23:00<br>60分钟后关机：sudo shutdown -h +60<br>命令重启电脑：sudo reboot<br>现在重启电脑：sudo shutdown -r now<br>关闭笔记本的触摸板 ：synclient touchpadoff=1<br>开启笔记本的触摸板：synclient touchpadoff=0<br>统计每个单词的出现频率并排序 ：awk ‘{arr[$1]+=1 }END{for(i in arr){print arr[i]“\t”i}}’ FILE_NAME | sort -rn<br>统计80端口的连接并排序 ：netstat -na|grep :80|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n<br>把终端加到右键菜单：sudo apt-get install nautilus-open-terminal<br>如何删除Totem电影播放机的播放历史记录 ：rm ~/.recently-used<br>vim 如何显示彩色字符 ：sudo cp /usr/share/vim/vimcurrent/vimrc_example.vim /usr/share/vim/vimrc<br>让 vim 直接支持编辑 .gz 文件 ：sudo apt-get install vim-full<br>vim 如何显示行号：:set number<br>查看在会话设置的启动程序：ls ~/.config/autostart<br>提高wine的反应速度 ：sudo sed -ie ‘/GBK/,/^}/d’ /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE<br>制作ISO文件：mkisofs -o test.iso -Jrv -V test_disk /home/carla/<br>延迟10秒抓图：gnome-screenshot -d 10<br>延迟5秒抓当前激活窗口：gnome-screenshot -w -d 5<br>如何命令行刻录：cdrecord -scanbus;cdrecord -v -eject speed=8 dev=1,1,0 test.iso<br>回收站在哪里：~/.local/share/Trash/<br>默认打开方式的配置文件在哪里：~/.local/share/applications/mimeapps.list<br>如何查看HTTP头：w3m -dump_head http://www.xxx.com<br>连续监视内存使用情况：watch -d free<br>如何切换到root帐号：sudo -Hs<br>只读挂载ntfs分区：sudo mount -t ntfs -o nls=utf8,umask=0 /dev/sdb1 /mnt/c<br>可写挂载ntfs分区：sudo mount -t ntfs-3g -o locale=zh_CN.utf8,umask=0 /dev/sdb1 /mnt/c<br>挂载fat32分区：sudo mount -t vfat -o iocharset=utf8,umask=0 /dev/sda1 /mnt/c<br>挂载共享文件：sudo mount -t smbfs -o username=xxx,password=xxx,iocharset=utf8 //192.168.1.1/share /mnt/share<br>挂载ISO文件：sudo mount -t iso9660 -o loop,utf8 xxx.iso /mnt/iso<br>带行号显示文件的内容：nl 文件名<br>批 量将rmvb转为avi：for i in *; do mencoder -oac mp3lame -lameopts vbr=3 -ovcxvid -xvidencopts fixed_quant=4 -of avi $i -o `echo $i | sed -e’s/rmvb$/avi/’`; done<br>批量将svg转为png：for i in *; do inkscape $i –export-png=`echo $i | sed -e ’s/svg$/png/’`; done<br>批量缩小图片到30%：for i in *; do convert -resize 30%x30% $1 sm-$1; done<br>批量转换jpg到png：for i in *; do convert $i `echo $i | sed -e ’s/jpg$/png/’`; done<br>获取jpg的扩展信息(Exif)：identify -verbose xxx.jpg<br>查看当前系统所有的监听端口：nc -zv localhost 1-65535<br>去掉文件中的^M：cat filename | tr -d “^M” &gt; newfile<br>去掉文件中的^M：sed -e “s/^M//g” filename &gt; newfile<br>转换bin/cue到iso文件：sudo apt-get install bchunk;bchunk image.bin image.cue image<br>转换目录到iso文件：mkisofs dirname -o isofile.iso<br>转换CD到iso文件：dd if=/dev/cdrom of=isofile.iso<br>ape 转换为flac：sudo apt-get install flac shntool;shntool split -t“%n.%p-%t” -f example_UTF-8.cue -o flac example.ape -d flacOutputDir<br>ape转换为 mp3：sudo apt-get install flac shntool lame;shntool split -t“%n.%p-%t” -f example_UTF-8.cue -o ‘cust ext=mp3 lame –r3mix -b 320–quiet – %f’ example.ape -d mp3OutputDir<br>检查本地是否存在安全隐患：sudo apt-get install rkhunter;rkhunter –checkall<br>如何安装杀毒软件：sudo apt-get install clamav;clamscan -r ~/<br>查看网络连接状态：netstat -n | awk ‘/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}’<br>统计程序的内存耗用：ps -eo fname,rss|awk ‘{arr[$1]+=$2} END {for (i in arr) {print i,arr[i]}}’|sort -k2 -nr<br>显示当前内存大小：free -m |grep “Mem” | awk ‘{print $2}’<br>按内存从大到小排列进程：ps -eo “%C : %p : %z : %a”|sort -k5 -nr<br>按cpu利用率从大到小排列进程：ps -eo “%C : %p : %z : %a”|sort -nr<br>统计当前目录下所有jpg文件的尺寸：find . -name *.jpg -exec wc -c {} \;|awk ‘{print $1}’|awk ‘{a+=$1}END{print a}’<br>清除僵死进程：ps -eal | awk ‘{ if ($2 == “Z”) {print $4}}’ | sudo kill -9<br>CD 抓轨为 mp3 (有损)：sudo apt-get install abcde;abcde -o mp3 -b<br>CD 抓轨为 Flac (无损)：sudo apt-get install abcde;abcde -o flac -b<br>显示系统安装包的统计信息：apt-cache stats<br>显示系统全部可用包的名称：apt-cache pkgnames<br>显示包的信息：apt-cache show k3b</p>
+</div></td></tr></tbody></table></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/07/09/Ubuntu学习吧/" data-id="ck1ln4udd00198wifxq61id64" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vs远程调试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/30/vs远程调试/" class="article-date">
+  <time datetime="2016-06-29T16:00:00.000Z" itemprop="datePublished">2016-06-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/当然我在扯淡/">当然我在扯淡</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/30/vs远程调试/">VS远程调试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+教你如何使用VS远程调试
+
+从VS2010的安装目录里面，找到D:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Remote Debugger文件夹
+
+拷贝Remote Debugger文件夹到目标机器（程序运行机器）
+运行mvsmon.exe，设置工具-选项为Windows身份验证，否则断点会不起作用
+
+控制面板的用户选项里面，添加和远程机相同的用户命，密码，可以在用户管理里直接添加。
+
+shift+右键--以其他身份运行-启动VisualStudio
+调试-附加到进程(注意传输选择：默认值，限定符输入远程机IP )
+
+执行刷新，附加到指定进程就可以了
+如果要调试远程WebService，需要将web.config里面的Debug选项设置为true，还要讲对应的pdb符号文件拷过去。
+Attention：
+如果出现无法附加远程调试器，或者远程调试器无法连接到本地计算机的提示，注意将防火墙关闭---我在帮同事设的时候就是因为本机Windows防火墙没有关提示无法连接
+VS2005远程调试跟2010是一样的，亲测可用
+如果Remote Debugger选项设置为无可用计算机，断点不会起作用。
+
+原文地址：http://www.52ij.com/jishu/aspx/154522.html
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/06/30/vs远程调试/" data-id="ck1ln4ud9000z8wifx7vue4pm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/牛逼一点/">牛逼一点</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-会峰网" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/29/会峰网/" class="article-date">
+  <time datetime="2016-04-28T16:00:00.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/回到当初/">回到当初</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/29/会峰网/">会峰网--问题+解决办法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#问题+解决方法<br>##1、cms URL伪静态设置出现404错误</p>
+<ul>
+<li>打开IIS–&gt;站点–&gt;右侧处理程序映射（双击）–&gt;添加脚本映射–&gt;</li>
+<li>1、请求路径：*；</li>
+<li>2、可执行文件：C:\Windows\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll；</li>
+<li>3、名称随意，确定</li>
+<li>4、选中新建项，右侧“编辑功能权限”，全勾上：读取、脚本、执行</li>
+<li>5、应用程序池：右键-高级设置-启用32位应用程序：True</li>
+<li>6、搞定</li>
+</ul>
+<p>##2、常用的帮助文章地址</p>
+<h3 id="Mysql数据导入汉字乱码问题"><a href="#Mysql数据导入汉字乱码问题" class="headerlink" title="Mysql数据导入汉字乱码问题"></a><a href="http://blog.csdn.net/zljjava/article/details/7948111" target="_blank" rel="noopener">Mysql数据导入汉字乱码问题</a></h3><h3 id="关掉bootstrap响应式布局的方案"><a href="#关掉bootstrap响应式布局的方案" class="headerlink" title="关掉bootstrap响应式布局的方案"></a><a href="http://jingyan.baidu.com/article/6766299768d0a554d41b8441.html" target="_blank" rel="noopener">关掉bootstrap响应式布局的方案</a></h3><ul>
+<li>替换步骤：</li>
+<li><img src="https://raw.githubusercontent.com/zhangzhenling/zhangzhenling.github.io/master/files/picture/2016-5-26-1.png" alt="image"></li>
+<li><img src="https://raw.githubusercontent.com/zhangzhenling/zhangzhenling.github.io/master/files/picture/2016-5-26-2.png" alt="image"></li>
+</ul>
+<h3 id="ico图标在线生成地址"><a href="#ico图标在线生成地址" class="headerlink" title="ico图标在线生成地址"></a><a href="http://www.bitbug.net/" target="_blank" rel="noopener">ico图标在线生成地址</a></h3><h3 id="在线样式生成工具"><a href="#在线样式生成工具" class="headerlink" title="在线样式生成工具"></a><a href="http://buttoncssgenerator.com/" target="_blank" rel="noopener">在线样式生成工具</a></h3><p>##3、CRM配置遇到的问题</p>
+<h3 id="a-先安装精华版，在升级"><a href="#a-先安装精华版，在升级" class="headerlink" title="a)先安装精华版，在升级"></a>a)先安装精华版，在升级</h3><h3 id="b-内存位置访问无效Exception-from-HRESULT-0x800703E6"><a href="#b-内存位置访问无效Exception-from-HRESULT-0x800703E6" class="headerlink" title="b) 内存位置访问无效Exception from HRESULT: 0x800703E6"></a>b) <a href="http://www.cnblogs.com/kissfu/p/5439902.html" target="_blank" rel="noopener">内存位置访问无效Exception from HRESULT: 0x800703E6</a></h3><p>##4、<a href="http://www.pc841.com/skill/37087.html" target="_blank" rel="noopener">华硕笔记本默认安装win8系统，安装Windows7 的方法</a><br>##5、<a href="http://jingyan.baidu.com/article/6d704a130c6d0d28db51ca3c.html" target="_blank" rel="noopener">如何解析设置域名添加www和不添加www都能够访问</a><br>##6、<a href="http://jingyan.baidu.com/article/6525d4b132ea10ac7c2e947c.html" target="_blank" rel="noopener">mssql2012数据库自动备份配置</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/04/29/会峰网/" data-id="ck1ln4ud7000w8wifqy9bhmcg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/会峰网/">会峰网</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-牛人博客推荐" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/28/牛人博客推荐/" class="article-date">
+  <time datetime="2016-03-27T16:00:00.000Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/牛人博客/">牛人博客</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/28/牛人博客推荐/">牛人博客、文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##<a href="http://coolshell.cn/" target="_blank" rel="noopener">酷壳，作者陈皓</a></p>
+<p>##<a href="http://www.haoduoshipin.com/" target="_blank" rel="noopener">好多视频网</a></p>
+<p>##<a href="http://baike.baidu.com/link?url=YR4mubFvWXF_mAzwQAwZyrtvtZqQeQCHFLOSAVU6-iYyUf3Ph4hdyNfrYMOIgHqh5GgkcZH4l2a29TZDuzE94a" target="_blank" rel="noopener">狂人—王垠[yín]</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/03/28/牛人博客推荐/" data-id="ck1ln4ud6000s8wifs4pn1ht4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Angular相关文章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/03/Angular相关文章/" class="article-date">
+  <time datetime="2016-03-02T16:00:00.000Z" itemprop="datePublished">2016-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Angular/">Angular</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/03/Angular相关文章/">Angular相关文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="http://www.cnblogs.com/rohelm/p/4033513.html" target="_blank" rel="noopener">Angular表单验证</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhangzhenling.github.io/2016/03/03/Angular相关文章/" data-id="ck1ln4ud0000h8wiflbmd1jbj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js高级内容/">Js高级内容</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MVC/">MVC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mongodb/">mongodb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/netcore/">netcore</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/silverlight/">silverlight</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/回到当初/">回到当初</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/当然我在扯淡/">当然我在扯淡</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/牛人博客/">牛人博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js高级内容/">Js高级内容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/">MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netcore/">netcore</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/silverlight/">silverlight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/会峰网/">会峰网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端学习/">前端学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开博客啦/">开博客啦</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/牛逼一点/">牛逼一点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/Js高级内容/" style="font-size: 10px;">Js高级内容</a> <a href="/tags/MVC/" style="font-size: 12.5px;">MVC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Ubuntu/" style="font-size: 17.5px;">Ubuntu</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/netcore/" style="font-size: 10px;">netcore</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/silverlight/" style="font-size: 10px;">silverlight</a> <a href="/tags/会峰网/" style="font-size: 10px;">会峰网</a> <a href="/tags/前端学习/" style="font-size: 10px;">前端学习</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开博客啦/" style="font-size: 20px;">开博客啦</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/牛逼一点/" style="font-size: 10px;">牛逼一点</a> <a href="/tags/美好的生活从这里开始/" style="font-size: 15px;">美好的生活从这里开始</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/C#集合IEnumerable的扩展/">C#集合IEnumerable的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/前端text树形文本转树形json/">前端text树形文本转树形json</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/01/资源分享/">快乐学习,资源共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/python-blog/">Python系统学习指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张振岭<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
