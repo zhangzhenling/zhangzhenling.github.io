@@ -7,18 +7,18 @@
   
   <title>oracle数据迁移之数据泵 | 抬头望天、放肆地微笑😊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="oracle数据迁移 —— 数据泵的使用 登录sysdba 1sqlplus sys@orcl/sa as sysdba  创建表空间 1234create tablespace MTR_DATA datafile &apos;C:\oradata\orcl\MTR_DATA.dbf&apos; size 2000m autoextend on next 200m;create tablespace PM_DATA">
+  <meta name="description" content="oracle数据迁移 —— 数据泵的使用导出数据库脚本 登录数据库，输入命令：sqlplus sys as sysdba  创建目录路径，输入命令： 12create directory data_dir as E:\orcl\data&apos;;--使用 select * from dba_directories; 可查询用户创建的目录  为oracle用户授予访问目录的权限，输入命令： 1grant">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle数据迁移之数据泵">
 <meta property="og:url" content="https://zhangzhenling.github.io/2019/10/17/oracle数据迁移之数据泵/index.html">
 <meta property="og:site_name" content="抬头望天、放肆地微笑😊">
-<meta property="og:description" content="oracle数据迁移 —— 数据泵的使用 登录sysdba 1sqlplus sys@orcl/sa as sysdba  创建表空间 1234create tablespace MTR_DATA datafile &apos;C:\oradata\orcl\MTR_DATA.dbf&apos; size 2000m autoextend on next 200m;create tablespace PM_DATA">
+<meta property="og:description" content="oracle数据迁移 —— 数据泵的使用导出数据库脚本 登录数据库，输入命令：sqlplus sys as sysdba  创建目录路径，输入命令： 12create directory data_dir as E:\orcl\data&apos;;--使用 select * from dba_directories; 可查询用户创建的目录  为oracle用户授予访问目录的权限，输入命令： 1grant">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-17T12:13:19.371Z">
+<meta property="og:updated_time" content="2019-10-23T10:00:35.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle数据迁移之数据泵">
-<meta name="twitter:description" content="oracle数据迁移 —— 数据泵的使用 登录sysdba 1sqlplus sys@orcl/sa as sysdba  创建表空间 1234create tablespace MTR_DATA datafile &apos;C:\oradata\orcl\MTR_DATA.dbf&apos; size 2000m autoextend on next 200m;create tablespace PM_DATA">
+<meta name="twitter:description" content="oracle数据迁移 —— 数据泵的使用导出数据库脚本 登录数据库，输入命令：sqlplus sys as sysdba  创建目录路径，输入命令： 12create directory data_dir as E:\orcl\data&apos;;--使用 select * from dba_directories; 可查询用户创建的目录  为oracle用户授予访问目录的权限，输入命令： 1grant">
   
     <link rel="alternate" href="/atom.xml" title="抬头望天、放肆地微笑😊" type="application/atom+xml">
   
@@ -87,7 +87,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="oracle数据迁移-——-数据泵的使用"><a href="#oracle数据迁移-——-数据泵的使用" class="headerlink" title="oracle数据迁移 —— 数据泵的使用"></a>oracle数据迁移 —— 数据泵的使用</h1><ol>
+        <h1 id="oracle数据迁移-——-数据泵的使用"><a href="#oracle数据迁移-——-数据泵的使用" class="headerlink" title="oracle数据迁移 —— 数据泵的使用"></a>oracle数据迁移 —— 数据泵的使用</h1><h2 id="导出数据库脚本"><a href="#导出数据库脚本" class="headerlink" title="导出数据库脚本"></a>导出数据库脚本</h2><ol>
+<li><p>登录数据库，输入命令：<br>sqlplus sys as sysdba</p>
+</li>
+<li><p>创建目录路径，输入命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">directory</span> data_dir <span class="keyword">as</span> E:\orcl\<span class="keyword">data</span><span class="string">';</span></span><br><span class="line"><span class="string">--使用 select * from dba_directories; 可查询用户创建的目录</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为oracle用户授予访问目录的权限，输入命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">read</span>,write <span class="keyword">on</span> <span class="keyword">directory</span> data_dir <span class="keyword">to</span> pm52; <span class="comment">--用户名：pm52</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出数据库脚本（在cmd下执行）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expdp pm52/sa@mapletr directory=data_dir dumpfile=pm52.dmp log=pm52.log</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="导入数据库脚本"><a href="#导入数据库脚本" class="headerlink" title="导入数据库脚本"></a>导入数据库脚本</h2><ol>
 <li><p>登录sysdba</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus sys@orcl/sa as sysdba</span><br></pre></td></tr></table></figure>
 </li>
@@ -118,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/10/17/oracle数据迁移之数据泵/" data-id="ck1uo1lj60035xcifwuqibtme" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/10/17/oracle数据迁移之数据泵/" data-id="ck233xnpp0036x1if9dc6no97" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>

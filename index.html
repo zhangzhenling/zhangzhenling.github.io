@@ -84,7 +84,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="oracle数据迁移-——-数据泵的使用"><a href="#oracle数据迁移-——-数据泵的使用" class="headerlink" title="oracle数据迁移 —— 数据泵的使用"></a>oracle数据迁移 —— 数据泵的使用</h1><ol>
+        <h1 id="oracle数据迁移-——-数据泵的使用"><a href="#oracle数据迁移-——-数据泵的使用" class="headerlink" title="oracle数据迁移 —— 数据泵的使用"></a>oracle数据迁移 —— 数据泵的使用</h1><h2 id="导出数据库脚本"><a href="#导出数据库脚本" class="headerlink" title="导出数据库脚本"></a>导出数据库脚本</h2><ol>
+<li><p>登录数据库，输入命令：<br>sqlplus sys as sysdba</p>
+</li>
+<li><p>创建目录路径，输入命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">directory</span> data_dir <span class="keyword">as</span> E:\orcl\<span class="keyword">data</span><span class="string">';</span></span><br><span class="line"><span class="string">--使用 select * from dba_directories; 可查询用户创建的目录</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为oracle用户授予访问目录的权限，输入命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">read</span>,write <span class="keyword">on</span> <span class="keyword">directory</span> data_dir <span class="keyword">to</span> pm52; <span class="comment">--用户名：pm52</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出数据库脚本（在cmd下执行）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expdp pm52/sa@mapletr directory=data_dir dumpfile=pm52.dmp log=pm52.log</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="导入数据库脚本"><a href="#导入数据库脚本" class="headerlink" title="导入数据库脚本"></a>导入数据库脚本</h2><ol>
 <li><p>登录sysdba</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus sys@orcl/sa as sysdba</span><br></pre></td></tr></table></figure>
 </li>
@@ -115,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/10/17/oracle数据迁移之数据泵/" data-id="ck1uo1lj60035xcifwuqibtme" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/10/17/oracle数据迁移之数据泵/" data-id="ck233xnpp0036x1if9dc6no97" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
@@ -178,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/10/10/hello-world/" data-id="ck1uo1lj80039xcif4eigm00j" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/10/10/hello-world/" data-id="ck233xnpr003ax1if3rrr62li" class="article-share-link">Share</a>
       
       
     </footer>
@@ -223,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/09/05/C#集合IEnumerable的扩展/" data-id="ck1uo1lj1002rxciftjx6hwds" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/09/05/C#集合IEnumerable的扩展/" data-id="ck233xnpn002zx1ifxn54c87p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
@@ -267,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/03/27/前端text树形文本转树形json/" data-id="ck1uo1lj50033xcifysferw8l" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/03/27/前端text树形文本转树形json/" data-id="ck233xnpo0033x1ifrnyypmnh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
@@ -316,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2019/03/01/资源分享/" data-id="ck1uo1lj4002zxcifhja8re6w" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2019/03/01/资源分享/" data-id="ck233xnpm002xx1if5xpe9uok" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/美好的生活从这里开始/">美好的生活从这里开始</a></li></ul>
@@ -361,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2018/11/20/python-blog/" data-id="ck1uo1lj2002txcif98x7m56f" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2018/11/20/python-blog/" data-id="ck233xnpl002tx1ifg0yrq8fk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -407,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2018/11/07/C#大文件上传/" data-id="ck1uo1liz002nxcif6se5w23p" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2018/11/07/C#大文件上传/" data-id="ck233xnpj002ox1ifwq96zr63" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
@@ -493,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2018/11/07/文件流/" data-id="ck1uo1lj3002xxcife6cynw4q" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2018/11/07/文件流/" data-id="ck233xnpk002rx1ifigfwkl2s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
@@ -555,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2018/09/29/docker的使用/" data-id="ck1uo1liy002lxcifqgzr0bue" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2018/09/29/docker的使用/" data-id="ck233xnpi002lx1ifw7bo2ocp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
@@ -605,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhangzhenling.github.io/2018/09/13/netcore使用技巧/" data-id="ck1uo1lix002ixcif73luqqqf" class="article-share-link">Share</a>
+      <a data-url="https://zhangzhenling.github.io/2018/09/13/netcore使用技巧/" data-id="ck233xnph002jx1ifzg2nxd2j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netcore/">netcore</a></li></ul>
